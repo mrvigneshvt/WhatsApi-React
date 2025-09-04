@@ -1,21 +1,23 @@
 // src/App.tsx
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CreateSession from "./Pages/Session";
-function App() {
-  return (
-    <Router>
-      <div className="p-4">
-        <nav className="mb-4">
-          <Link to="/createSession" className="text-blue-500 underline">
-            Create Session
-          </Link>
-        </nav>
+import Register from "./Pages/Register";
+import TopBar from "./components/TopBar";
 
-        <Routes>
-          <Route path="/createSession" element={<CreateSession />} />
-        </Routes>
-      </div>
-    </Router>
+function App() {
+  // Example: Replace with your actual login state logic
+  const isLoggedIn = false;
+
+  return (
+    <>
+      <TopBar isLoggedIn={isLoggedIn} />
+      <Router>
+          <Routes>
+            <Route path="/createSession" element={<CreateSession />} />
+            <Route path="/register" element={<Register/>} />
+          </Routes>
+      </Router>
+    </>
   );
 }
 
